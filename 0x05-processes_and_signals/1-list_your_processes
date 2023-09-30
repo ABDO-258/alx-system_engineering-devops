@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # script to get PID
 
-ps aux
+ps -aux
 
