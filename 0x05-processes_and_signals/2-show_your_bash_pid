@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# script to get PID of 
+
+ps -auxf | grep bash
