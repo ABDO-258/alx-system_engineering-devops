@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# displays "To infinity and beyond" 
+# I hate the kill command"' SIGTERM 
+# Y U no love me?!"'  SIGINT (ctrl+c)
+
+
+exiting()
+{
+    rm -f /var/run/myscript.pid
+    exit 0
+}
+
+# create file put pid inside 
+echo "$$" > /var/run/myscript.pid
+
+trap   'echo "I hate the kill command"' SIGTERM
+
+trap   'echo "Y U no love me?!"'  SIGINT
+
+trap 'exiting' SIGQUIT
+
+
+
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
