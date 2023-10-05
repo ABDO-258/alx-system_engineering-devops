@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#  cript that pings an IP address passed as an argument
+
+if [ $# -eq 0 ];
+then 
+    echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+else
+    # get the ip from the args
+    ip_input="$1"
+    # ping the ip 5 times
+    ping -c 5 "$ip_input"
+fi
