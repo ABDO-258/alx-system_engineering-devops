@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+Host myserver
+  User ubuntu
+  IdentityFile ~/.ssh/school
+  PasswordAuthentication no
