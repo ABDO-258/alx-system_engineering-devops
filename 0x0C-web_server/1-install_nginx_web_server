@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Installing Nginx on my web-01
 # curl, it must return a page that contains the string Hello World!
 # Nginx should be listening on port 80
