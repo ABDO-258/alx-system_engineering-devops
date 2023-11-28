@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# script that transfers a file from our client to a server
 
 # check the number of arguments
 if [ "$#" -lt 3 ]; then
