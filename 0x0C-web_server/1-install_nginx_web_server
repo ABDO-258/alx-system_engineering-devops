@@ -4,8 +4,9 @@
 # curl, it must return a page that contains the string Hello World!
 # Nginx should be listening on port 80
 
-apt-get update -y
-apt-get install nginx -y
+apt-get -y update 
+apt-get -y upgrade 
+apt-get -y install nginx 
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 ufw allow 'Nginx HTTP'
 service nginx restart
