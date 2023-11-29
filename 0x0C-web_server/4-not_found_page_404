@@ -19,4 +19,4 @@ if ! grep -q "location = \/custom_404.html {" /etc/nginx/sites-available/default
     sed -i '/^}$/i \ \n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t\treturn 404 "Ceci n'\''est pas une page";\n\t}' "/etc/nginx/sites-available/default"
 fi
 
-service nginx reload
+service nginx start
