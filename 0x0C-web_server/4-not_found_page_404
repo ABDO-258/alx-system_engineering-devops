@@ -8,9 +8,15 @@ apt-get -y update
 apt-get -y upgrade 
 apt-get -y install nginx 
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
-
 ufw allow 'Nginx HTTP'
-sed -i '/^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;}' /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
-sed -i '/^}$/i \ \n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t\treturn 404 "Ceci n'\''est pas une page";\n\t}' "/etc/nginx/sites-available/default"
+# Check if the location block already exists before adding it
+if ! grep -q "location \/redirect_me {" /etc/nginx/sites-available/default; then
+    sed -i '/^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;}' /etc/nginx/sites-available/default
+fi
+
+# Check if the custom_404.html location block already exists before adding it
+if ! grep -q "location = \/custom_404.html {" /etc/nginx/sites-available/default; then
+    sed -i '/^}$/i \ \n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t\treturn 404 "Ceci n'\''est pas une page";\n\t}' "/etc/nginx/sites-available/default"
+fi
+
 service nginx reload
