@@ -12,4 +12,4 @@ sudo ufw allow 'Nginx HTTP'
 if ! grep -q "location \/redirect_me {" /etc/nginx/sites-available/default; then
     sudo sed -i '/^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;}' /etc/nginx/sites-available/default
 fi
-sudo service nginx reload
+sudo service nginx start
