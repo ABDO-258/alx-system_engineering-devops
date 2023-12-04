@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Installing Haproxy on my server
+# Configure your Haproxy server
+
+apt-get -y update 
+apt-get -y upgrade 
+apt-get -y install haproxy
+
+sudo sh -c 'echo "listen myserver\n\tbind *:80\n\tbalance roundrobin\n\tserver 355369-web-01 35.168.8.193:80 check\n\tserver 355369-web-02 100.26.213.82:80 check\n" >> /etc/haproxy/haproxy.cfg'
+
+service haproxy start
