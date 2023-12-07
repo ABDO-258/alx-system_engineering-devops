@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# print subdomaine info
+
+SUBDOMAINES=("www"  "lb-01" "web-01" "web-02")
+
+if [ "$#" == 1 ]; then
+    for subdomaine in "${SUBDOMAINES[@]}"; do
+        echo "$(dig $subdomaine.$1 | awk '/ANSWER SECTION:/ {getline; print "The subdomain '"$subdomaine"' is a "$4" record and points to "$5}')"
+    done
+elif [ "$#" == 2 ]; then
+    subdomain=$2
+    echo "$(dig $subdomain.$1 | awk '/ANSWER SECTION:/ {getline; print "The subdomain '"$subdomain"' is a "$4" record and points to "$5}')"
+fi
