@@ -18,7 +18,7 @@ def TODO_LIST(id_):
 
     todo_list = requests.get(f'{url_link}/todos?userId={id_}')
     todo_json = todo_list.json()
-    print(todo_json)
+    # print(todo_json)
     filename = f'{user_id}.csv'
 
     with open(filename, 'w', newline='') as csvfile:
