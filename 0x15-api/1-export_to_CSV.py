@@ -8,7 +8,6 @@ import requests
 import sys
 
 
-
 def TODO_LIST(id_):
     """ GET INFORMATION ABOUT THE TODO LIST"""
     url_link = 'https://jsonplaceholder.typicode.com'
