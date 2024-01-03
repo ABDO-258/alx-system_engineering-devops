@@ -23,8 +23,10 @@ def TODO_LIST(id_):
 
     with open(filename, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS",
+        
+        """csv_writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS",
                             "TASK_TITLE"])
+        """
 
         for task in todo_json:
             csv_writer.writerow([user_id, employee_name,
