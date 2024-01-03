@@ -20,7 +20,7 @@ def TODO_LIST(id_):
     total_tasks = len(todo_json)
     completed_tasks = sum(1 for task in todo_json if task["completed"])
     print(
-        f"Employee {employee_name} is done with tasks "
+        f"Employee {employee_name} is done with tasks"
         f"({completed_tasks}/{total_tasks}):"
         )
     for task in todo_json:
