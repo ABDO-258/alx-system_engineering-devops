@@ -25,7 +25,7 @@ def TODO_LIST(id_):
         )
     for task in todo_json:
         if task["completed"]:
-            print(f"\t{task['title']}")
+            print(f"\t {task['title']}")
 
 
 if __name__ == "__main__":
