@@ -21,7 +21,8 @@ def TODO_LIST(id_):
     # print(todo_json)
     filename = f'{user_id}.json'
 
-    tasks_data = [{"task": task["title"], "completed": task["completed"], "username": employee_name} for task in todo_json]
+    tasks_data = [{"task": task["title"], "completed": task["completed"],
+                  "username": employee_name} for task in todo_json]
     user_data = {str(user_id): tasks_data}
 
     with open(filename, 'w', newline='') as jsonfile:
