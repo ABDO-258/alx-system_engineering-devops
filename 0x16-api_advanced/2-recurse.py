@@ -23,7 +23,7 @@ def recurse(subreddit, hot_list=[], after=None):
             # Append titles to the hot_list
             for post in data['data']['children']:
                 hot_list.append(post['data']['title'])
-            
+
             # Check if there are more pages (pagination)
             after = data['data']['after']
             if after is not None:
